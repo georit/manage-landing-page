@@ -4,6 +4,7 @@ const mobileNav = document.querySelector(".nav-links-wrapper");
 const mobileNavToggle = document.getElementById("mobile-nav");
 const testimonialsEl = document.querySelector(".testimonials");
 let testimonialIndex = 1;
+const emailInput = document.getElementById("get-updates");
 
 /* *****on load***** */
 showTestimonials(testimonialIndex);
@@ -42,6 +43,12 @@ function showTestimonials(n) {
   dots[testimonialIndex - 1].className += " active";
 }
 
+// validate email
+function emailIsValid(email) {
+  const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return reg.test(String(email).toLowerCase());
+}
+
 /* *****event listeners***** */
 // mobile navigation
 mobileNavToggle.addEventListener("click", () => {
@@ -72,5 +79,13 @@ testimonialsEl.addEventListener("click", (e) => {
     clickedDotId === 4
   ) {
     currentTestimonial(clickedDotId);
+  }
+});
+
+// validate email input
+document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (emailIsValid(emailInput.value) === false) {
+    alert("Please enter a valid email");
   }
 });
