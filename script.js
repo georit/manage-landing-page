@@ -7,7 +7,9 @@ let testimonialIndex = 1;
 const emailInput = document.getElementById("get-updates");
 
 /* *****on load***** */
-showTestimonials(testimonialIndex);
+if (window.innerWidth < 1050) {
+  showTestimonials(testimonialIndex);
+}
 
 /* *****functions***** */
 function plusTestimonial(n) {
@@ -50,6 +52,13 @@ function emailIsValid(email) {
 }
 
 /* *****event listeners***** */
+// resize window
+window.addEventListener("resize", function () {
+  if (window.innerWidth < 1050) {
+    showTestimonials(testimonialIndex);
+  }
+});
+
 // mobile navigation
 mobileNavToggle.addEventListener("click", () => {
   if (mobileNavToggle.className === "fas fa-bars mobile-nav") {
