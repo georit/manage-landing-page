@@ -95,6 +95,8 @@ testimonialsEl.addEventListener("click", (e) => {
 document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
   if (emailIsValid(emailInput.value) === false) {
-    alert("Please enter a valid email");
+    document.querySelector(".warning").style.display = "block";
+  } else {
+    document.querySelector(".warning").style.display = "none";
   }
 });

@@ -361,11 +361,15 @@ footer {
 }
 
 footer .signup-for-updates {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
 }
 
 .signup-for-updates input[type="text"] {
-  width: 74%;
+  width: 100%;
   padding: 0.8rem 1rem;
   border-radius: 25px;
   border: none;
@@ -386,6 +390,16 @@ footer .signup-for-updates {
   padding: 0.8rem 1.5rem;
   cursor: pointer;
   font-size: 16px;
+  margin-left: 1rem;
+}
+
+.warning {
+  display: none;
+  font-size: 0.8rem;
+  color: red;
+  padding: 3px 2% 0;
+  text-align: left;
+  width: 100%;
 }
 
 .footer-nav {
@@ -643,9 +657,6 @@ p.copy {
   }
 
   footer .signup-for-updates {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     order: 2;
     width: 40%;
   }
